@@ -18,7 +18,7 @@ do
 
         if [[ $network_status = connected ]]
         then
-                internet_status=$(curl -sI http://www.google.com | awk '/OK/ {print $3}')
+                internet_status=$(curl -sI http://www.google.com | awk '/200/ {print $2}')
                 if [[ $internet_status = OK ]]
                 then
                         if [[ $led_state = OFF ]]
