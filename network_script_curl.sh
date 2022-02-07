@@ -1,6 +1,3 @@
-
-
-
 #!/bin/bash
 # exporting the gpio4.IO01 - 480 - 32 * 4 + 1 = 353
 echo 353 > /sys/class/gpio/export
