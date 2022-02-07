@@ -3,11 +3,11 @@
 echo 353 > /sys/class/gpio/export
 
 
-//set the direction of pin
+#set the direction of pin
 echo "out" > /sys/class/gpio/gpio353/direction
 
 
-//set the pin
+#set the pin
 echo 0 > /sys/class/gpio/gpio353/value
 
 
