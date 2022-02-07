@@ -19,7 +19,7 @@ do
         if [[ $network_status = connected ]]
         then
                 internet_status=$(curl -sI http://www.google.com | awk '/200/ {print $2}')
-                if [[ $internet_status = OK ]]
+                if [[ $internet_status = 200 ]]
                 then
                         if [[ $led_state = OFF ]]
                         then
