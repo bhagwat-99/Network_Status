@@ -32,6 +32,7 @@ do
                 else
                         echo "Connected but no internet"
                         echo 0 > /sys/class/gpio/gpio353/value
+                        led_state=OFF
 
                 fi
 
