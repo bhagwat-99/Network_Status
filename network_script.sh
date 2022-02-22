@@ -8,8 +8,10 @@ while true
 do
     network_status=$(nmcli -t -f STATE g)
     internet_status=$(ping -q -c 1 -W 1 8.8.8.8 | awk '/received/ {print $4}')
+    #internet_status=$(curl -sI http://www.google.com | awk '/200/ {print $2}')
 
     if [[ $network_status = connected && $internet_status = 1 ]]
+    #if [[ $network_status = connected && $internet_status = 200 ]]
     then
         if [ $led_state = OFF ]
         then
