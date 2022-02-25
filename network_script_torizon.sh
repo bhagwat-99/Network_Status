@@ -1,11 +1,13 @@
 #!/bin/bash
 
+echo torizoncore | sudo -S chown -R torizon:gpio /sys/class/gpio/export /sys/class/gpio/unexport
+
 echo 353 > /sys/class/gpio/export
 
-echo torizoncore | sudo -S chown -R torizon:gpio /sys/class/gpio/gpio353/direction /sys/class/gpio/gpio353/value
+echo torizoncore | sudo -S chown -R torizon:gpio /sys/class/gpio/gpio353 /sys/class/gpio/gpio353/direction /sys/class/gpio/gpio353/value
 
 echo "out" > /sys/class/gpio/gpio353/direction
-echo 0 > /sys/class/gpip/gpio353/value
+echo 0 > /sys/class/gpio/gpio353/value
 
 led_state=OFF
 while true
@@ -22,8 +24,9 @@ do
             echo "connected"
         fi
     else
-        echo 0 > /sys/class/gpip/gpio353/value
+        echo 0 > /sys/class/gpio/gpio353/value
         echo "disconnected"
         led_state=OFF
     fi
 done
+
