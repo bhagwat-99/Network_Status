@@ -4,7 +4,7 @@ echo 353 > /sys/class/gpio/export
 
 echo torizoncore | sudo -S chown -R torizon:gpio /sys/class/gpio/gpio353/direction /sys/class/gpio/gpio353/value
 
-echo "out" /sys/class/gpio/gpio353/direction
+echo "out" > /sys/class/gpio/gpio353/direction
 echo 0 > /sys/class/gpip/gpio353/value
 
 led_state=OFF

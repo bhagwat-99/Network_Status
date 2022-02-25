@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 353 > /sys/class/gpio/export
-echo "out" /sys/class/gpio/gpio353/direction
+echo "out" > /sys/class/gpio/gpio353/direction
 
 led_state=OFF
 while true
