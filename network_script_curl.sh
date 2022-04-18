@@ -8,7 +8,7 @@ echo 0 > /sys/class/gpio/gpio353/value
 led_state=OFF
 while true
 do
-    internet_status=$(curl -sI http://www.google.com | awk '/200/ {print $2}')
+    internet_status=$(curl --conect-timeout 5 -sI http://www.google.com | awk '/200/ {print $2}')
 
     if [[ $internet_status = 200 ]]
     then
