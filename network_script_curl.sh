@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#echo 353 > /sys/class/gpio/export
+echo 353 > /sys/class/gpio/export
 
-#echo "out" > /sys/class/gpio/gpio353/direction
-#echo 0 > /sys/class/gpio/gpio353/value
+echo "out" > /sys/class/gpio/gpio353/direction
+echo 0 > /sys/class/gpio/gpio353/value
 
 led_state=OFF
 while true
@@ -15,11 +15,11 @@ do
         if [ $led_state = OFF ]
         then
             led_state=ON
-            #echo 1 > /sys/class/gpio/gpio353/value
+            echo 1 > /sys/class/gpio/gpio353/value
             echo "connected"
         fi
     else
-        #echo 0 > /sys/class/gpio/gpio353/value
+        echo 0 > /sys/class/gpio/gpio353/value
         echo "disconnected"
         led_state=OFF
     fi
