@@ -15,10 +15,15 @@ internet_status_google=random_data
 internet_status_aws=random_data
 
 #reading serial ID
-SerialID=$(cat /etc/entomologist/entomologist.conf | awk '/SERIAL_ID/ {print $2} ' | tr -d '",')
+SerialID=$(cat /etc/entomologist/ento.conf | awk '/SERIAL_ID/ {print $2} ' | tr -d '",')
 
 #aws url to ping request
 address='https://ush9tkb8hj.execute-api.us-west-2.amazonaws.com/hbeat?deviceId='$SerialID
+
+boot='https://ush9tkb8hj.execute-api.us-west-2.amazonaws.com/boot?deviceId='$SerialID
+
+curl -s --connect-timeout 5  $boot
+
 
 
 while true
