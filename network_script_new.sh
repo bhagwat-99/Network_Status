@@ -20,9 +20,24 @@ SerialID=$(cat /etc/entomologist/ento.conf | awk '/SERIAL_ID/ {print $2} ' | tr 
 #aws url to ping request
 address='https://ush9tkb8hj.execute-api.us-west-2.amazonaws.com/hbeat?deviceId='$SerialID
 
+
 boot='https://ush9tkb8hj.execute-api.us-west-2.amazonaws.com/boot?deviceId='$SerialID
 
-curl -s --connect-timeout 5  $boot
+#curl -s --connect-timeout 5  $boot
+
+net_status=not_connected
+net_status=$(curl -s --connect-timeout 5  $boot | tr -d '"')
+
+while true
+do
+  if [ $net_status = "OK" ]
+  then
+      break
+  fi
+  echo "No Internet" > /tmp/netstatus
+  sleep 10
+  net_status=$(curl -s --connect-timeout 5  $boot | tr -d '"')
+done
 
 
 
