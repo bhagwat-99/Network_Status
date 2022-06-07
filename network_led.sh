@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /etc/entomologist/network_led.conf
+
 #exporting gpio5 pin
 echo 353 > /sys/class/gpio/export
 
@@ -67,5 +69,5 @@ do
            echo "disconnected" > /tmp/netstatus
        fi
    fi
-sleep 120
+sleep $ping_delay
 done
