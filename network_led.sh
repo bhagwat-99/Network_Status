@@ -41,7 +41,7 @@ do
   net_status=$(curl --connect-timeout 10 -sI http://www.google.com | awk '/200/ {print $2}')
 done
 
-
+curl -s --connect-timeout 10  $boot
 
 while true
 do
